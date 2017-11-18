@@ -239,8 +239,10 @@ export default {
     getOffsetTop () {
       if (!this.hasWindow) return 0
 
-      return window.pageYOffset ||
+      return (
+        window.pageYOffset ||
         document.documentElement.scrollTop
+      )
     },
     measure (el, selector) {
       el = selector ? el.querySelector(selector) : el

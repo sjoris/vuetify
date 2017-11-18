@@ -3,7 +3,15 @@ import Bootable from './bootable'
 export default {
   mixins: [Bootable],
 
+  data: () => ({
+    targetNode: {}
+  }),
+
   props: {
+    target: {
+      type: String,
+      default: '[data-app]'
+    },
     contentClass: {
       default: ''
     }
@@ -26,10 +34,10 @@ export default {
     initDetach () {
       if (this._isDestroyed) return
 
-      const app = document.querySelector('[data-app]')
+      const app = document.querySelector(this.target)
 
       if (!app) {
-        return console.warn('Application is missing <v-app> component.')
+        return console.warn(`Unable to find <target> ${this.target}, ensure that the target exists in the DOM`)
       }
 
       // If child has already been removed, bail
@@ -39,6 +47,8 @@ export default {
         this.$refs.content,
         app.firstChild
       )
+
+      this.targetNode = app
     }
   }
 }

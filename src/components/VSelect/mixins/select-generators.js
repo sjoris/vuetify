@@ -24,6 +24,7 @@ export default {
           offsetY: this.shouldOffset,
           offsetOverflow: this.isAutocomplete,
           openOnClick: false,
+          target: this.target,
           value: this.menuIsVisible,
           zIndex: this.menuZIndex
         },

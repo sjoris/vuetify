@@ -62,6 +62,7 @@ export default {
     segmented: Boolean,
     singleLine: Boolean,
     solo: Boolean,
-    tags: Boolean
+    tags: Boolean,
+    target: String
   }
 }
