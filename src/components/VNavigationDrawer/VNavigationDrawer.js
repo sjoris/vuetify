@@ -189,7 +189,7 @@ export default {
     right (val, prev) {
       // When the value changes
       // reset previous direction
-      if (prev != null) {
+      if (prev != null && this.app) {
         const dir = val ? 'left' : 'right'
         this.$vuetify.application[dir] = 0
       }
